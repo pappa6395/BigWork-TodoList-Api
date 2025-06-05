@@ -1,9 +1,13 @@
 {
   "name": "BigWork_Assignment",
+  "version": "1.0.0",
+  "description": "Todolist",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
     "dev": "turbo run dev",
+    "build": "turbo run build",
+    "build:api": "turbo run build --filter=api",
+    "build:client": "turbo run build --filter=client",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"

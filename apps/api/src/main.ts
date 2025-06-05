@@ -6,7 +6,7 @@ async function bootstrap() {
 
   const allowedOrigin = [
     'http://localhost:5173',
-    'https://todolist-checkapi.netlify.app/',
+    'https://todolist-checkapi.netlify.app',
   ]
 
   app.enableCors({

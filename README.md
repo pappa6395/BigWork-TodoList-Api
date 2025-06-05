@@ -1,85 +1,121 @@
-# Turborepo starter
+📋 TodoList & API Checker App
 
-This Turborepo starter is maintained by the Turborepo core team.
+A full-stack web application combining a sleek TodoList manager and a public API checker, built with Vite + React (TypeScript) for the frontend and NestJS for the backend.
 
-## Using this example
+Frontend deployed on Netlify
+Backend deployed on Railway
 
-Run the following command:
+🔗 DEMO:
+Frontend: https://todolist-checkapi.netlify.app
+API: https://bigwork-todolist-api-production.up.railway.app
 
-```sh
-npx create-turbo@latest
-```
+🌟 Features
+🔁 Switch between TodoList and API Checker via ShadCN UI Tabs
 
-## What's inside?
+✅ Add, complete, and remove todos
 
-This Turborepo includes the following packages/apps:
+🌐 Fetch public APIs from https://bigwork-todolist-api-production.up.railway.app/check?data=yes
 
-### Apps and Packages
+⚙️ Full-stack setup using Turborepo
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+🧪 Error handling on both frontend & backend
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+🔐 Environment-based configuration using .env
 
-### Utilities
+✨ Modern, responsive UI using Tailwind CSS & ShadCN UI
 
-This Turborepo has some additional tools already setup for you:
+🐞 Toast notifications with react-toastify
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+🚀 Deployed using Netlify (Frontend) + Railway (Backend)
 
-### Build
+🏛️ Project Structure
 
-To build all apps and packages, run the following command:
+![Project Structure](./apps/client/public/proj-str.png)
 
-```
-cd my-turborepo
-pnpm build
-```
+🛠️ System Design
+Frontend (Vite + React + TS)
+Routing: React Router
 
-### Develop
+UI Library: ShadCN UI, Tailwind CSS
 
-To develop all apps and packages, run the following command:
+State Management: useState, useEffect
 
-```
-cd my-turborepo
-pnpm dev
-```
+Notifications: React Toastify
 
-### Remote Caching
+Tabs UI: Switch between TodoList and CheckAPI
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+Backend (NodeJS + TypeScript)
+Framework: NestJS
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+Controllers: /api/todos/routes
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+Validation: DTO + Pipes
 
-```
-cd my-turborepo
-npx turbo login
-```
+CORS Config: For cross-origin support (Netlify ↔ Railway)
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+Port: Uses process.env.PORT for Railway
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+📦 Environment Variables
+Frontend .env (apps/web/.env)
+VITE_API_URL=https://bigwork-todolist-api-production.up.railway.app/todos
 
-```
-npx turbo link
-```
 
-## Useful Links
+Backend .env (apps/api/.env)
+PORT=8080
 
-Learn more about the power of Turborepo:
+🧩 Installation
+1. Clone the Repository
+git clone https://github.com/pappa6395/BigWork-TodoList-Api.git
+cd bigwork-todo-api
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
-# BigWork-TodoList-Api
+2. Setup Backend
+cd apps/api
+npm install
+cp .env.example .env
+# Edit the .env file if needed
+npm run start:dev
+
+3. Setup Frontend
+cd ../web
+npm install
+cp .env.example .env
+npm run dev
+
+🧪 Sample API Endpoint
+
+GET /api/v1/todos → Fetch todo list
+GET https://bigwork-todolist-api-production.up.railway.app/check?data=yes → Fetch APIs from Public API source
+
+🛡️ Error Handling
+
+Backend: Uses NestJS exception filters for clean API responses
+
+Frontend: Toast notifications for failed requests and alerts
+
+Design UI/UX
+
+- Frontend UI for todolists
+![todo-1](./apps/client/public/todo-1.png)
+
+- Frontend UI for check-api
+![api-1](./apps/client/public/api-1.png)
+
+🗺️ Summary Diagram
+
+![Sysmtem Diagram](./apps/client/public/sum-diag.png)
+
+🚀 Future Improvements
+
+- Add authentication (Login/Signup)
+
+- Connect to a database for persistent todos
+
+- PWA support (offline-friendly)
+
+- Charts for API usage metrics
+
+- Add unit & E2E testing
+
+👨 Developed By
+Nontachai Pahsukkul (Pap)
+Built with ❤️ using NestJS, Vite, and Turborepo.
